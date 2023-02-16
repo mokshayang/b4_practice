@@ -60,11 +60,31 @@ function chk(){
     })
 }
 
+//需要return true false，但是抓不到 ajax 在reg()內 ，根本不知道你的return 啥時會回來
+//非同步處理特性 還在跑 不知道啥時候會回來 
+//但程式還要擠續往下跑 ， 這時chk()預設是false
+//所以再送一次 
 function reg(){
-    if(chk()){//需要return true false，但是抓不到 ajax 在reg()內 ，根本不知道你的return 啥時會回來
-              //非同步處理特性 還在跑 不知道啥時候會回來 
-              //但程式還要擠續往下跑 ， 這時chk()預設是false
-
-    }
+    let mem = {name:$("name").val(),
+               acc:$("acc").val(),
+               pw:$("pw").val(),
+               tel:$("tel").val(),
+               addr:$("addr").val(),
+               email:$("email").val(),
+               }
+    $.get("api/chk_acc.php",mem,(res)=>{
+        if((res)*1 || acc=='admin'){ //1 or 0
+            console.log(res);
+        //if(parseInt(res)){    
+        //題意 : 不得用admin
+            alert("此帳號已存在，請使用別的帳號")
+        }else{
+            $.post("./api/save_mem.php",mem,()=>{
+                //比較機密，會改變資料表 一般用 post
+                //如果只是查詢 用get就可以了
+            })
+        }
+    })
+    
 }
 </script>
