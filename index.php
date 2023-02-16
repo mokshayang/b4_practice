@@ -6,6 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>┌精品電子商務網站」</title>
         <link href="./css/css.css" rel="stylesheet" type="text/css">
+        <script src="./js/jquery-3.4.1.min.js"></script>
         <script src="./js/js.js"></script>
 </head>
 
@@ -24,7 +25,7 @@
                                 <a href="?do=login">會員登入</a> |
                                 <a href="?do=admin">管理登入</a>
                         </div>
-                        情人節特惠活動 &nbsp; 為了慶祝七夕情人節，將舉辦情人兩人到現場有七七折之特惠活動~
+                        <marquee scrollamount="15"> 情人節特惠活動 &nbsp; 為了慶祝七夕情人節，將舉辦情人兩人到現場有七七折之特惠活動~</marquee>
                 </div>
                 <div id="left" class="ct">
                         <div style="min-height:400px;">

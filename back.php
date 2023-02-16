@@ -4,9 +4,9 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 	<title>┌精品電子商務網站」</title>
 	<link href="./css/css.css" rel="stylesheet" type="text/css">
+	<script src="./js/jquery-3.4.1.min.js"></script>
 	<script src="./js/js.js"></script>
 </head>
 
@@ -19,6 +19,7 @@
 			</a>
 			<img src="./icon/0417.jpg">
 		</div>
+		<marquee scrollamount="15"> 情人節特惠活動 &nbsp; 為了慶祝七夕情人節，將舉辦情人兩人到現場有七七折之特惠活動~</marquee>
 		<div id="left" class="ct">
 			<div style="min-height:400px;">
 				<a href="?do=admin">管理權限設置</a>
@@ -29,6 +30,7 @@
 				<a href="?do=news">最新消息管理</a>
 				<a href="?do=logout" style="color:#f00;">登出</a>
 			</div>
+		
 		</div>
 		<div id="right">
 			<?php
