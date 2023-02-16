@@ -29,7 +29,7 @@
     </tr>
 </table>
 <div class="ct">
-    <button onclick="">註冊</button>
+    <button onclick="reg()">註冊</button>
     <button onclick="">重置</button>
 </div>
 
@@ -48,6 +48,7 @@
 //     })
 // })
 function chk(){
+    let acc = $('#acc').val();
     $.get("api/chk_acc.php",{acc},(res)=>{
         if((res)*1 || acc=='admin'){ //1 or 0
             console.log(res);
@@ -65,12 +66,12 @@ function chk(){
 //但程式還要擠續往下跑 ， 這時chk()預設是false
 //所以再送一次 
 function reg(){
-    let mem = {name:$("name").val(),
-               acc:$("acc").val(),
-               pw:$("pw").val(),
-               tel:$("tel").val(),
-               addr:$("addr").val(),
-               email:$("email").val(),
+    let mem = {name:$("#name").val(),
+               acc:$("#acc").val(),
+               pw:$("#pw").val(),
+               tel:$("#tel").val(),
+               addr:$("#addr").val(),
+               email:$("#email").val(),
                }
     $.get("api/chk_acc.php",mem,(res)=>{
         if((res)*1 || acc=='admin'){ //1 or 0
@@ -82,6 +83,8 @@ function reg(){
             $.post("./api/save_mem.php",mem,()=>{
                 //比較機密，會改變資料表 一般用 post
                 //如果只是查詢 用get就可以了
+                
+                location.href='?do=login'
             })
         }
     })
