@@ -30,12 +30,17 @@
 				<a href="?do=news">最新消息管理</a>
 				<a href="?do=logout" style="color:#f00;">登出</a>
 			</div>
-		
+
 		</div>
 		<div id="right">
 			<?php
-
-
+			$do = $_GET['do'] ?? 'admin';
+			$file = "./back/$do.php";
+			if (file_exists($file)) {
+				include_once $file;
+			} else {
+				include_once "./back/admin.php";
+			}
 			?>
 		</div>
 		<div id="bottom" style="line-height:70px; color:#FFF; background:url(icon/bot.png);" class="ct">

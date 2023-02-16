@@ -37,6 +37,15 @@
                         </span>
                 </div>
                 <div id="right">
+                        <?php
+                        $do = $_GET['do']??'admin';
+                        $file = "./front/$do.php";
+                        if(file_exists($file)){
+                                include_once $file;
+                        }else{
+                                include_once "./front/admin.php";
+                        }
+                        ?>
                 </div>
                 <div id="bottom" style="line-height:70px;background:url(icon/bot.png); color:#FFF;" class="ct">
                         頁尾版權 : </div>
