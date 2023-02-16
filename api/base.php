@@ -159,6 +159,6 @@ function dummy_icon($type){
     }
 }
 $Bottom = new DB("bottom");//頁尾版權
-// $ = new DB("");//介紹片海報
+$Mem = new DB("mem");//介紹片海報
 // $ = new DB("");//介紹片海報
 
