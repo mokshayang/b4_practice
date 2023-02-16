@@ -8,25 +8,23 @@
         <td>管理</td>
     </tr>
     <?php
-    $rows=$Admin->all();
-    foreach($rows as $row){
+    $rows = $Admin->all();
+    foreach ($rows as $row) {
     ?>
-    <tr class="pp">
-        <td><?=$row['acc']?></td>
-        <td><?=str_repeat("*",strlen($row['pw'])) ?></td>
-        <td>
-            <?php
-            if($row['acc'] != 'admin'){
-            ?>
-            <button onclick="location.href='?do=edit_admin&id=<?=$row['id']?>'">修改</button>
-            <button onclick="del('admin',<?=$row['id']?>)">刪除</button>
-            <?php }else{ 
-             echo "此帳號為最高權限";   
-            }   
-             ?>
-                
-           
-        </td>
-    </tr>
+        <tr class="pp">
+            <td><?= $row['acc'] ?></td>
+            <td><?= str_repeat("*", strlen($row['pw'])) ?></td>
+            <td>
+                <?php
+                if ($row['acc'] != 'admin') {
+                ?>
+                    <button onclick="location.href='?do=edit_admin&id=<?= $row['id'] ?>'">修改</button>
+                    <button onclick="del('admin',<?= $row['id'] ?>)">刪除</button>
+                <?php } else {
+                    echo "此帳號為最高權限";
+                }
+                ?>
+            </td>
+        </tr>
     <?php } ?>
 </table>
