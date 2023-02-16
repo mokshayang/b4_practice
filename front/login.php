@@ -8,7 +8,7 @@
     </tr>
     <tr>
         <td class="tt ct">密碼 :</td>
-        <td class="pp"><input type="passward" name="pw" id="pw"></td>
+        <td class="pp"><input type="password" name="pw" id="pw"></td>
     </tr>
     <tr>
         <td class="tt ct">驗證碼 :</td>
@@ -40,6 +40,7 @@
                     pw: $('#pw').val()
                 }, (res) => {
                     //再檢查帳號密碼 :
+                    console.log(res);
                     if (res * 1) {
                         location.href = 'index.php';
                     } else {
