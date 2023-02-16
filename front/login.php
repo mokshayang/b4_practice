@@ -12,13 +12,45 @@
     </tr>
     <tr>
         <td class="tt ct">驗證碼 :</td>
-        <td class="pp"><input type="text" name="" id=""></td>
+        <td class="pp">
+            <?php
+            $a = rand(10, 99);
+            $b = rand(10, 99);
+            $_SESSION['cert'] = $a + $b;
+
+
+            echo $a . "+" . $b . "=";
+            ?>
+            <input type="text" name="cert" id="cert">
+        </td>
     </tr>
 </table>
 <div class="ct">
-    <input type="submit" value="登入">
-    <input type="reset" value="重置">
+    <button onclick="login()">確認</button>
 </div>
+
 <script>
-    
+    function login() {
+        $.get("api/chk_cert.php", {
+            cert: $('#cert').val()
+        }, (res) => { //檢查驗證碼
+            if ((res * 1) == 1) {
+                $.get("api/chk_pw.php", {
+                    acc: $('#acc').val(),
+                    pw: $('#pw').val()
+                }, (res) => {
+                    //再檢查帳號密碼 :
+                    if (res * 1) {
+                        location.href = 'index.php';
+                    } else {
+                        alert("帳號密碼錯誤，請重新輸入")
+                    }
+                })
+
+            } else {
+                alert("驗證碼碼錯誤，請重新輸入")
+            }
+
+        })
+    }
 </script>
