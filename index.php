@@ -24,6 +24,7 @@
                                 <a href="?do=look">購物流程</a> |
                                 <a href="?do=buycart">購物車</a> |
                                 <a href="?do=login">會員登入</a> |
+                                <a href="#" onclick="location.href='./api/logout.php?table=mem'" ;">登出</a> |
                                 <a href="?do=admin">管理登入</a>
                         </div>
                         <marquee scrollamount="15"> 情人節特惠活動 &nbsp; 為了慶祝七夕情人節，將舉辦情人兩人到現場有七七折之特惠活動~</marquee>
@@ -39,12 +40,12 @@
                 </div>
                 <div id="right">
                         <?php
-                        $do = $_GET['do']??'admin';
+                        $do = $_GET['do']??'main';
                         $file = "./front/$do.php";
                         if(file_exists($file)){
                                 include_once $file;
                         }else{
-                                include_once "./front/admin.php";
+                                include_once "./front/main.php";
                         }
                         ?>
                 </div>

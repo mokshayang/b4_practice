@@ -1,0 +1,1 @@
+<div>我是front main.php</div>

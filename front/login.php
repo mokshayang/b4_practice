@@ -26,16 +26,17 @@
     </tr>
 </table>
 <div class="ct">
-    <button onclick="login()">確認</button>
+    <button onclick="login('mem')">確認</button>
 </div>
 
 <script>
-    function login() {
+    function login(table) {
         $.get("api/chk_cert.php", {
             cert: $('#cert').val()
         }, (res) => { //檢查驗證碼
             if ((res * 1) == 1) {
                 $.get("api/chk_pw.php", {
+                    table,
                     acc: $('#acc').val(),
                     pw: $('#pw').val()
                 }, (res) => {
