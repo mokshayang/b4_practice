@@ -31,15 +31,9 @@
 
 <script>
     function login(table) {
-        $.get("api/chk_cert.php", {
-            cert: $('#cert').val()
-        }, (res) => { //檢查驗證碼
+        $.get("api/chk_cert.php", {cert: $('#cert').val()}, (res) => { //檢查驗證碼
             if ((res * 1) == 1) {
-                $.get("api/chk_pw.php", {
-                    table,
-                    acc: $('#acc').val(),
-                    pw: $('#pw').val()
-                }, (res) => {
+                $.get("api/chk_pw.php", {table,acc: $('#acc').val(),pw: $('#pw').val()}, (res) => {
                     //再檢查帳號密碼 :
                     console.log(res);
                     if (res * 1) {
