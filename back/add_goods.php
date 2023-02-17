@@ -41,7 +41,9 @@
     </tr>
     <tr>
         <td class="tt ct">商品介紹</td>
-        <td class="pp"><input type="text" name="intro" id="intro"></td>
+        <td class="pp">
+            <textarea name="intro" id="" cols="50" rows="12"></textarea>
+        </td>
     </tr>
 </table>
 <div class="ct">

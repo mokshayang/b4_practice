@@ -19,9 +19,9 @@ $pr = unserialize($admin['pr']);
 	<div id="main">
 		<div id="top">
 			<a href="index.php">
-				<img src="./icon/0416.jpg">
+				<img src="./icon/0416.jpg" style="width:72%;">
 			</a>
-			<img src="./icon/0417.jpg">
+			<img src="./icon/0417.jpg" style="width:25%;">
 		</div>
 		<marquee scrollamount="15"> 情人節特惠活動 &nbsp; 為了慶祝七夕情人節，將舉辦情人兩人到現場有七七折之特惠活動~</marquee>
 		<div id="left" class="ct">
