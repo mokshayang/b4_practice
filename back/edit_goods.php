@@ -5,7 +5,7 @@
     <tr>
         <td class="tt ct">所屬大分類</td>
         <td class="pp">
-            <select name="big" id="big"></select>
+            <select name="big" id="big" onclick="getMids()"></select>
         </td>
     </tr>
     <tr>
@@ -55,6 +55,7 @@
         // $('#big').on('change',function(){
     //     getMids();
     // })
+    
     // $('#big').load("./api/get_bigs.php",()=>{
     //     getMids();
     // }) //載入時，僅限於 一次
