@@ -161,5 +161,6 @@ function dummy_icon($type){
 $Bottom = new DB("bottom");//頁尾版權
 $Mem = new DB("mem");//介紹片海報
 $Admin = new DB("admin");//管理者
+$Type = new DB("type");//管理者
 // $ = new DB("");//介紹片海報
 
