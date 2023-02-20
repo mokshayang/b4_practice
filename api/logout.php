@@ -2,6 +2,7 @@
 
 // $db = new DB($_GET['table']);
 unset($_SESSION[$_GET['table']]);
+unset($_SESSION['cart']);
 
 // switch($_GET['table']){
 //     case 'mem':

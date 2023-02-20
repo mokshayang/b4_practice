@@ -41,7 +41,9 @@ if (isset($_GET['type']) && $_GET['type'] != 0) {
     /* .goods>div{
         background:#EFCA85;
     } */
-
+.item img{
+    cursor: pointer;
+}
 </style>
 <div class="hall ">
     <?php
@@ -55,9 +57,12 @@ if (isset($_GET['type']) && $_GET['type'] != 0) {
             <div class="goods">
                 <div class="tt ct"><?= $row['name'] ?></div>
                 <div class="pp">價錢 : <?= $row['price'] ?>
-                <a href="?do=edtail&id=<?=$row['id']?>">
-                    <img src="icon/0402.jpg" style="float:right">
-                </a>
+               
+                    <img src="icon/0402.jpg" 
+                         style="float:right" 
+                         onclick="location.href='?do=buycart&id=<?=$row['id']?>&qt=1'">
+                         <!-- 這邊的是固定數量 1  -->
+              
                 </div>
                 <div class="pp">規格 : <?= $row['spec'] ?></div>
                 <div class="pp">簡介 : <?= $row['intro'] ?></div>

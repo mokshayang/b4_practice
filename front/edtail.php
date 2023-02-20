@@ -38,11 +38,18 @@ $goods_type .= $Type->find($goods['mid'])['name'];
 <div class="tt ct">
     我要購買
     <input type="number" name="qt" id="qt" value="1">
-    <a href="">
-        <img src="./uplon/0402,jpg" alt="">
-    </a>
+    
+        <img src="icon/0402.jpg" alt="buy" onclick='buycart()' >
+
 </div>
 <br>
 <div class="ct">
     <button onclick="location.href='index.php'">返回</button>
 </div>
+<script>
+    function buycart(){
+        let qt =$('#qt').val();
+        location.href=`?do=buycart&id=<?=$goods['id'];?>&qt=${qt}`
+        // console.log("OK");
+    }
+</script>
