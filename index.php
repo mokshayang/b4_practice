@@ -16,9 +16,9 @@
         <div id="main">
                 <div id="top">
                         <a href="?">
-                                <img src="./icon/0416.jpg">
+                                <img src="./icon/0416.jpg" style="width:50%">
                         </a>
-                        <div style="padding:10px;">
+                        <div style="padding:10px;display:inline;vertical-align:top">
                                 <a href="?">回首頁</a> |
                                 <a href="?do=news">最新消息</a> |
                                 <a href="?do=look">購物流程</a> |
@@ -39,8 +39,35 @@
                         </div>
                         <marquee scrollamount="15"> 情人節特惠活動 &nbsp; 為了慶祝七夕情人節，將舉辦情人兩人到現場有七七折之特惠活動~</marquee>
                 </div>
+
                 <div id="left" class="ct">
                         <div style="min-height:400px;">
+                                <!-- 20230220  -->
+                                <a href="?type=0">全部商品(<?= $Goods->count(['sh' => 1]) ?>)</a>
+                                <?php
+                                $bigs = $Type->all(['parent' => 0]); //撈出主選單
+                                foreach ($bigs as $big) {
+                                        echo "<div class='ww'>";
+                                                echo "<a href='?type={$big['id']}'>";
+                                                echo $big['name'];
+                                                echo "(" . $Goods->count(['sh' => 1, 'big' => $big['id']]) . ")";
+                                                echo "</a>";
+
+                                        if ($Type->count(['parent' => $big['id']]) > 0) {
+                                                $mids = $Type->all(['parent' => $big['id']]);
+                                                foreach ($mids as $mid) {
+                                                echo "<div class='s'>";
+                                                        echo "<a href='?type={$mid['id']}'>";
+                                                        echo $mid['name'];
+                                                        echo "(" . $Goods->count(['sh' => 1, 'mid' => $mid['id']]) . ")";
+                                                        echo "</a>";
+                                                echo "</div>";
+                                                }
+                                        }
+
+                                        echo "</div>";// class='ww' end
+                                }
+                                ?>
                         </div>
                         <span>
                                 <div>進站總人數</div>

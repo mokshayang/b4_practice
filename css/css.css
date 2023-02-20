@@ -102,7 +102,13 @@ input[type=text],input[type=password]
 .s
 {
 	display:none;
+	margin-left: 30px;
 }
+/* 為了子分類  ww s  在前方套#left 2023/02/20 09:20  */
+#left .s a{
+	background-color: limegreen;
+}
+
 div.ww:hover > div.s
 {
 	display:block;
