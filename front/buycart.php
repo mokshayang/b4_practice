@@ -77,7 +77,7 @@ if(!isset($_SESSION['mem'])){
 </table>
 <div class="ct">
     <img src="icon/0411.jpg" alt="" onclick="location.href='?do=index'">
-    <img src="icon/0412.jpg" alt="" onclick="">
+    <img src="icon/0412.jpg" alt="" onclick="location.href='?do=order'">
 </div>
 <?php //} ?>
 <script>
