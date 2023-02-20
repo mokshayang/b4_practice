@@ -115,10 +115,10 @@ foreach($rows as $row){
             switch(type){
                 case 'up':
                     $(dom).parent().prev().text("販售中");
-                    break;
-                    case 'down':
+                break;
+                case 'down':
                     $(dom).parent().prev().text("已下架");
-                    break;
+                break;
             };
         })
     }

@@ -50,7 +50,7 @@
 function chk(){
     let acc = $('#acc').val();
     $.get("api/chk_acc.php",{acc},(res)=>{
-        if((res)*1 || acc=='admin'){ //1 or 0
+        if(res*1 || acc=='admin'){ //1 or 0
             console.log(res);
         //if(parseInt(res)){    
         //題意 : 不得用admin
@@ -74,7 +74,7 @@ function reg(){
                email:$("#email").val(),
                }
     $.get("api/chk_acc.php",mem,(res)=>{
-        if((res)*1 || acc=='admin'){ //1 or 0
+        if(res*1 || acc=='admin'){ //1 or 0
             console.log(res);
         //if(parseInt(res)){    
         //題意 : 不得用admin

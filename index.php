@@ -34,17 +34,17 @@
                                 <a href="?do=buycart">購物車</a> |
                                 <?php
                                 if (!isset($_SESSION['mem'])) {
-                                ?>
-                                        <a href="?do=login">會員登入</a> |
-                                <?php } else { ?>
-                                        <a href="#" onclick="location.href='./api/logout.php?table=mem'">登出</a> |
-                                <?php }
+                                        echo "<a href='?do=login'>會員登入</a> | ";
+                                } else {                                      
+                                        echo "<a href='api/logout.php?table=mem'>登出</a> | ";
+                                }
+                                // 這邊是管理者
                                 if (!isset($_SESSION['admin'])) {
+                                        echo "<a href='?do=admin'>管理登入</a>";
+                                } else {
+                                        echo "<a href='back.php?do=admin'>返回管理</a>";
+                                } 
                                 ?>
-                                        <a href="?do=admin">管理登入</a>
-                                <?php } else { ?>
-                                        <a href="back.php?do=admin">返回管理</a>
-                                <?php } ?>
                         </div>
                         <marquee scrollamount="15"> 情人節特惠活動 &nbsp; 為了慶祝七夕情人節，將舉辦情人兩人到現場有七七折之特惠活動~</marquee>
                 </div>

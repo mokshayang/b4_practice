@@ -44,7 +44,7 @@
     </tr>
 </table>
 <div class="ct">
-    <input type="hidden" name="<?=$row['id']?>">
+    <input type="hidden" name="id" value="<?=$row['id']?>">
     <input type="submit" value="修改">
     <input type="reset" value="重置">
     <input type="button" value="返回" onclick="location.href='?do=th'">

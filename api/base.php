@@ -8,7 +8,7 @@ function dd($array){
 }
 function q($sql){
     global $pdo;
-    $dsn="mysql:host=localhost;charset=utf8;dbname=db15_3";//個人用
+    $dsn="mysql:host=localhost;charset=utf8;dbname=db15_4";//個人用
     $pdo=new PDO($dsn,'root','');
     return $pdo->query($sql)->fetchAll();
 }
@@ -60,7 +60,7 @@ class DB
         if(isset($arg[1])){
             $sql .= $arg[1];
         }
-        //dd($sql);
+        // dd($sql);
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
     function find($id){
