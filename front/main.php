@@ -38,6 +38,9 @@ if (isset($_GET['type']) && $_GET['type'] != 0) {
         grid-template-rows: 2fr 2fr 2fr 5fr;
         grid-gap: 1px;
     }
+    /* .goods>div{
+        background:#EFCA85;
+    } */
 
 </style>
 <div class="hall ">
@@ -47,12 +50,14 @@ if (isset($_GET['type']) && $_GET['type'] != 0) {
     ?>
         <div class="item">
             <div>
-                <img src="upload/<?=$row['img']?>" style="width:200px;">
+                <img src="upload/<?=$row['img']?>" style="width:200px;height:140px" onclick="location.href='?do=edtail&id=<?=$row['id']?>'">
             </div>
             <div class="goods">
                 <div class="tt ct"><?= $row['name'] ?></div>
                 <div class="pp">價錢 : <?= $row['price'] ?>
+                <a href="?do=edtail&id=<?=$row['id']?>">
                     <img src="icon/0402.jpg" style="float:right">
+                </a>
                 </div>
                 <div class="pp">規格 : <?= $row['spec'] ?></div>
                 <div class="pp">簡介 : <?= $row['intro'] ?></div>
