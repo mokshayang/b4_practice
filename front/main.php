@@ -18,7 +18,7 @@ if ($type['parent'] == 0) {
     //$type['parent'] 一值表示大分類
     $nav = $type_big['name'] . ' > ' . $type['name'];
     $rows = $Goods->all(['sh' => 1, 'mid' => $type['id']]); //撈出所有中分類
-    dd( $type_big);
+    // dd( $type_big);
     }
 } else {
     //全部商品
