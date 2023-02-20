@@ -61,19 +61,22 @@
     // }) //載入時，僅限於 一次
 
     // getBigs();
-let goods = {big:<?=$row['big']?>,mid:<?=$row['mid']?>}
+let goods = {
+    //上方有承接單項商品id
+            big : <?=$row['big']?>,//該品項的大分類 id
+            mid : <?=$row['mid']?> //該品項中分類的 id 
+            }
 
     function getBigs(){
         // $.get("api/get_bigs.php",(res)=>{
         //     $('#big').html(res);
         // })
         $('#big').load("./api/get_bigs.php",()=>{
-            $(`#big option[value='${goods.big}']`).prop('selected',true);
-            //$('#big option[value=16]`).prop('selected',true);
-
+            $(`option[value=${goods.big}]`).prop('selected',true);
+            // getMids();
             let big = $('#big').val();//抓取選中的val()
             $('#mid').load("api/get_mids.php",{big},()=>{
-            $(`#mid option[value='${goods.mid}']`).prop('selected',true);
+            $(`option[value=${goods.mid}]`).prop('selected',true);
             })
 
         })

@@ -1,7 +1,7 @@
 <?php
 $mem = $Mem->find($_GET['id']);
 ?>
-<h2 class="ct">會員註冊</h2>
+<h2 class="ct">會員修改</h2>
 <form action="api/save_mem.php" method="post">
 <table class="all">
     <tr>

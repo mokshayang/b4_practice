@@ -7,7 +7,7 @@
 </div>
 <div class="ct">
     新增中分類
-    <select name="b" id="b"> <!-- 這邊選擇 大分類的子分類  -->
+    <select name="b" id="b"> <!-- 這邊選擇 大分類的項目  -->
         <?php
         foreach ($bigs as $big) {
             echo "<option value='{$big['id']}'>{$big['name']}</option>";
