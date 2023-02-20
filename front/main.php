@@ -6,17 +6,19 @@ if (isset($_GET['type']) && $_GET['type'] != 0) {
     $type = $Type->find($_GET['type']); //去資料庫撈出分類
     //導覽頁的顯示 :
     //如果是大分類 : 即左邊的選單
-
-    if ($type['parent'] == 0) {
-        $nav = $type['name'];
-        $rows = $Goods->all(['sh' => 1, 'big' => $type['id']]); //撈出所有大分類
-    } else { //不是大分類(paremt !=0 這時 $type['name'] 就是小分類)
-        //如果是中分類 : 則導覽要呈現 大分類 > 小分類
-        $type_big = $Type->find($type['parent']); //找出中分類的 parent 即就是大分類的id
-        //在$type['parent']!=0 的狀況下 $type_big=$Type->find($type['parent'])就是 中分類的大分類ID(parent)
-        //$type['parent'] 一值表示大分類
-        $nav = $type_big['name'] . ' > ' . $type['name'];
-        $rows = $Goods->all(['sh' => 1, 'mid' => $type['id']]); //撈出所有中分類
+//  dd($type);
+if ($type['parent'] == 0) {
+    $nav = $type['name'];
+    $rows = $Goods->all(['sh' => 1, 'big' => $type['id']]); //撈出所有大分類
+    //  dd($rows);
+} else { //不是大分類(paremt !=0 這時 $type['name'] 就是小分類)
+    //如果是中分類 : 則導覽要呈現 大分類 > 小分類
+    $type_big = $Type->find($type['parent']); //找出中分類的 parent 即就是大分類的id
+    //在$type['parent']!=0 的狀況下 $type_big=$Type->find($type['parent'])就是 中分類的大分類ID(parent)
+    //$type['parent'] 一值表示大分類
+    $nav = $type_big['name'] . ' > ' . $type['name'];
+    $rows = $Goods->all(['sh' => 1, 'mid' => $type['id']]); //撈出所有中分類
+    dd( $type_big);
     }
 } else {
     //全部商品
@@ -62,7 +64,6 @@ if (isset($_GET['type']) && $_GET['type'] != 0) {
                          style="float:right" 
                          onclick="location.href='?do=buycart&id=<?=$row['id']?>&qt=1'">
                          <!-- 這邊的是固定數量 1  -->
-              
                 </div>
                 <div class="pp">規格 : <?= $row['spec'] ?></div>
                 <div class="pp">簡介 : <?= $row['intro'] ?></div>
