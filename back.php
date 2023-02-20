@@ -35,7 +35,7 @@ $pr = unserialize($admin['pr']);
 				echo in_array(5,$pr)?"<a href='?do=news'>最新消息管理</a>":"";
 				?>
 				<!-- <a href="?do=logout" style="color:#f00;">登出</a> -->
-				<a href="#" onclick="location.href='./api/logout.php?table=admin'" ;">登出</a>
+				<a href="api/logout.php?table=admin">登出</a>
 			</div>
 
 		</div>
