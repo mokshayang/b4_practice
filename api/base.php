@@ -159,9 +159,10 @@ function dummy_icon($type){
     }
 }
 $Bottom = new DB("bottom");//頁尾版權
-$Mem = new DB("mem");//介紹片海報
+$Mem = new DB("mem");//會員
 $Admin = new DB("admin");//管理者
-$Type = new DB("type");//管理者
-$Goods = new DB("goods");//管理者
+$Type = new DB("type");//類別
+$Goods = new DB("goods");//商品
+$Ord = new DB("ord");//訂單
 // $ = new DB("");//介紹片海報
 
