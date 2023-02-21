@@ -38,9 +38,7 @@ $goods_type .= $Type->find($goods['mid'])['name'];
 <div class="tt ct">
     我要購買
     <input type="number" name="qt" id="qt" value="1">
-    
-        <img src="icon/0402.jpg" alt="buy" onclick='buycart()' >
-
+        <img src="icon/0402.jpg" alt="buy" onclick='buycart()' >  
 </div>
 <br>
 <div class="ct">

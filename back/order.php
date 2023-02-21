@@ -13,11 +13,11 @@
     foreach($orders as $order){
     ?>
     <tr class="ct pp">
-        <td><?=$order['no']?></td>
+    <td><a href='?do=ord_detail&id=<?=$order['id'];?>'><?=$order['no'];?></a></td>
         <td><?=$order['total']?></td>
         <td><?=$order['acc']?></td>
         <td><?=$order['name']?></td>
-        <td><?=date("Y/m/d", strtotime($order['ord_data']))?></td>
+        <td><?=date("Y/m/d", strtotime($order['ord_date']))?></td>
         <td>
             <button onclick="del('ord',<?=$order['id']?>)">刪除</button>
         </td>

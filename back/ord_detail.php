@@ -1,42 +1,48 @@
-<h2 class="ct">填寫資料</h2>
 <?php
-$user = $Mem->find(['acc'=>$_SESSION['mem']]);
+$order = $Ord->find($_GET['id']);
 ?>
+<h2 class="ct">訂單標號
+    <span style="color:red"><?=$order['no']?></span>詳細資料
+</h2>
 <style>
     .all{
         margin: 0 auto;
     }
+    .b_ord input{
+        border: 0;
+        background-color: transparent;
+    }
 </style>
 
-<table class="all">
+<table class="all b_ord">
     <tr>
         <td class="tt ct">登入帳號</td>
         <td class="pp">
-        <?=$user['acc']?>
+        <?=$order['acc']?>
         </td>
     </tr>
     <tr>
         <td class="tt ct">姓名</td>
         <td class="pp">
-            <input type="text" name="name" id="name" value="<?=$user['name']?>">
+            <input type="text" name="name" id="name" value="<?=$order['name']?>">
         </td>
     </tr>
     <tr>
         <td class="tt ct">電子信箱</td>
         <td class="pp">
-            <input type="text" name="email"  id="email" value="<?=$user['email']?>">
+            <input type="text" name="email"  id="email" value="<?=$order['email']?>">
        </td>
     </tr>
     <tr>
         <td class="tt ct">聯絡地址</td>
         <td class="pp">
-            <input type="text" name="addr"  id="addr" value="<?=$user['addr']?>">
+            <input type="text" name="addr"  id="addr" value="<?=$order['addr']?>">
         </td>
     </tr>
     <tr>
         <td class="tt ct">連絡電話</td>
         <td class="pp">
-            <input type="text" name="tel"  id="tel" value="<?=$user['tel']?>">
+            <input type="text" name="tel"  id="tel" value="<?=$order['tel']?>">
         </td>
     </tr>
 </table>
@@ -52,8 +58,10 @@ $user = $Mem->find(['acc'=>$_SESSION['mem']]);
     <?php //要判短cart isset
     //計算總計 :
     $sum = 0;
+// 要修改的地方
+    $cart = unserialize($order['cart']);
  
-    foreach($_SESSION['cart'] as $id => $qt){
+    foreach($cart as $id => $qt){
         $row = $Goods->find($id);
     ?>
     <tr class="pp ct">
@@ -77,25 +85,5 @@ $sum += $row['price']*$qt;
 </table>
 
 <div class="ct">
-    <button onclick="checkout()">確定送出</button>
-    <button onclick="history.go(-1)">返回修改訂單</button>
-
+    <button onclick="history.go(-1)">返回</button>
 </div>
-<script>
-    function checkout(){
-
-        $.post("api/checkout.php",
-        {
-            'name':$('#name').val(),
-            'email':$('#email').val(),
-            'addr':$('#addr').val(),
-            'tel':$('#tel').val(),
-            'total':<?=$sum?>,
-        },
-        (res)=>{
-            console.log(res);
-            alert("訂購成功，感謝您的選購")
-        })
-    }
-</script>
-
