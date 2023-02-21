@@ -36,7 +36,7 @@ $user = $Mem->find(['acc'=>$_SESSION['mem']]);
     <tr>
         <td class="tt ct">連絡電話</td>
         <td class="pp">
-            <input type="text" name=""  value="<?=$user['tel']?>">
+            <input type="text" name="tel"  value="<?=$user['tel']?>">
         </td>
     </tr>
 </table>
@@ -81,4 +81,20 @@ $sum += $row['price']*$qt;
     <button onclick="history.go(-1)">返回修改訂單</button>
 
 </div>
+<script>
+    function checkout(){
+
+        $.post("api/checkout.php",
+        {
+            'name':$('#name').val(),
+            'email':$('#email').val(),
+            'addr':$('#addr').val(),
+            'tel':$('#tel').val(),
+            'total':<?=$sum?>,
+        },
+        ()=>{
+            alert("訂購成功，感謝您的選購")
+        })
+    }
+</script>
 
