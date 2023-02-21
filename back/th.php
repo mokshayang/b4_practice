@@ -67,16 +67,16 @@
     }
     function editType(dom){
         let id = $(dom).data('id')
-        // let name = $(dom).parent().prev().text()//要上層前一個(兄)文字
         let name = prompt('請輸入你要修改的分類名稱',$(dom).parent().prev().text());
         if(name){
             $.post("./api/add_type.php",{id,name},()=>{
                 location.reload();
             })
         }
-        console.log(id,name);
     }
 </script>
+
+
 <h2 class="ct">商品管理</h2>
 <div class="ct">
     <button onclick="location.href='?do=add_goods'">新增商品</button>
@@ -111,7 +111,6 @@ foreach($rows as $row){
 <script>
     function sh(type,id,dom){
         $.post("./api/sh.php",{type,id},()=>{
-            //這樣畫面不用動，比較好
             switch(type){
                 case 'up':
                     $(dom).parent().prev().text("販售中");
