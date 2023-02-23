@@ -89,7 +89,8 @@
     }
 </script>
 
-
+<!-- DB : goods 相關 -->
+<!-- no  name  price spec stock img intro big mid sh -->
 <h2 class="ct">商品管理</h2>
 <div class="ct">
     <button onclick="location.href='?do=add_goods'">新增商品</button>
@@ -130,7 +131,6 @@
             id
         }, () => {
             sh.text((type == "up")?'販售中':'已下架');
-   
         })
     }
 </script>

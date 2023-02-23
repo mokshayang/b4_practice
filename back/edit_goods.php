@@ -63,6 +63,7 @@
     // getBigs();
 let goods = {
     //上方有承接單項商品id
+    //get 過來的id
             big : <?=$row['big']?>,//該品項的大分類 id
             mid : <?=$row['mid']?> //該品項中分類的 id 
             }
@@ -76,6 +77,10 @@ let goods = {
             // getMids();
             let big = $('#big').val();//抓取選中的val()
             $('#mid').load("api/get_mids.php",{big},()=>{
+                //結果如果等於傳過來的內容設定為顯示
+                //PHP 也可以做到 但要做迴圈
+                //這種方法屬於前端。比較需要理解，程式碼也比較短
+                //且與新增商品共用兩隻API
             $(`option[value=${goods.mid}]`).prop('selected',true);
             })
 
