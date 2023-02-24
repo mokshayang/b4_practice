@@ -126,10 +126,12 @@
     //goods 的上下架
     function sh(type, id, dom) {
         let sh =$(dom).parent().prev();
+        
         $.post("./api/sh.php", {
             type,
             id
-        }, () => {
+        }, (res) => {
+            console.log(res);
             sh.text((type == "up")?'販售中':'已下架');
         })
     }
