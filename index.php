@@ -35,7 +35,7 @@
                                 <?php
                                 if (!isset($_SESSION['mem'])) {
                                         echo "<a href='?do=login'>會員登入</a> | ";
-                                } else {                                      
+                                } else {
                                         echo "<a href='api/logout.php?table=mem'>登出</a> | ";
                                 }
                                 // 這邊是管理者
@@ -43,10 +43,12 @@
                                         echo "<a href='?do=admin'>管理登入</a>";
                                 } else {
                                         echo "<a href='back.php?do=admin'>返回管理</a>";
-                                } 
+                                }
                                 ?>
                         </div>
-                        <marquee scrollamount="15"> 情人節特惠活動 &nbsp; 為了慶祝七夕情人節，將舉辦情人兩人到現場有七七折之特惠活動~</marquee>
+                        <marquee scrollamount="15">
+                                情人節特惠活動 &nbsp; 為了慶祝七夕情人節，將舉辦情人兩人到現場有七七折之特惠活動~
+                        </marquee>
                 </div>
 
                 <div id="left" class="ct">
@@ -57,24 +59,24 @@
                                 $bigs = $Type->all(['parent' => 0]); //撈出主選單
                                 foreach ($bigs as $big) {
                                         echo "<div class='ww'>";
-                                                echo "<a href='?type={$big['id']}'>";
-                                                echo $big['name'];
-                                                echo "(" . $Goods->count(['sh' => 1, 'big' => $big['id']]) . ")";
-                                                echo "</a>";
+                                        echo "<a href='?type={$big['id']}'>";
+                                        echo $big['name'];
+                                        echo "(" . $Goods->count(['sh' => 1, 'big' => $big['id']]) . ")";
+                                        echo "</a>";
 
                                         if ($Type->count(['parent' => $big['id']]) > 0) {
                                                 $mids = $Type->all(['parent' => $big['id']]);
                                                 foreach ($mids as $mid) {
-                                                echo "<div class='s'>";
+                                                        echo "<div class='s'>";
                                                         echo "<a href='?type={$mid['id']}'>";
                                                         echo $mid['name'];
                                                         echo "(" . $Goods->count(['sh' => 1, 'mid' => $mid['id']]) . ")";
                                                         echo "</a>";
-                                                echo "</div>";
+                                                        echo "</div>";
                                                 }
                                         }
 
-                                        echo "</div>";// class='ww' end
+                                        echo "</div>"; // class='ww' end
                                 }
                                 ?>
                         </div>

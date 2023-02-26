@@ -9,17 +9,17 @@
         <td>操作</td>
     </tr>
     <?php
-    $orders = $Ord->all();
-    foreach($orders as $order){
+    $rows = $Ord->all();
+    foreach($rows as $row){
     ?>
     <tr class="ct pp">
-    <td><a href='?do=ord_detail&id=<?=$order['id'];?>'><?=$order['no'];?></a></td>
-        <td><?=$order['total']?></td>
-        <td><?=$order['acc']?></td>
-        <td><?=$order['name']?></td>
-        <td><?=date("Y/m/d", strtotime($order['ord_date']))?></td>
+    <td><a href='?do=ord_detail&id=<?=$row['id'];?>'><?=$row['no'];?></a></td>
+        <td><?=$row['total']?></td>
+        <td><?=$row['acc']?></td>
+        <td><?=$row['name']?></td>
+        <td><?=date("Y/m/d", strtotime($row['date']))?></td>
         <td>
-            <button onclick="del('ord',<?=$order['id']?>)">刪除</button>
+            <button onclick="del('ord',<?=$row['id']?>)">刪除</button>
         </td>
     </tr>
     <?php } ?>
